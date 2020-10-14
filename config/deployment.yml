@@ -1,23 +1,23 @@
+#@ load("@ytt:data", "data")
+#@ load("labels.lib.yml", "labels")
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: greeter
-  name: greeter
+  labels: #@ labels(data.values.name)
+  name: #@ data.values.name
 spec:
-  replicas: 1
+  replicas: #@ data.values.replicas
   selector:
-    matchLabels:
-      app: greeter
+    matchLabels: #@ labels(data.values.name)
   template:
     metadata:
-      labels:
-        app: greeter
+      labels: #@ labels(data.values.name)
     spec:
       containers:
       - image: greeter
         env:
         - name: GREETING
-          value: "Greetings"
+          value: #@ data.values.greeting
         name: greeter-server

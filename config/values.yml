@@ -1,0 +1,5 @@
+#@data/values
+---
+name: greeter-friendly
+greeting: "Hello there"
+replicas: 2
