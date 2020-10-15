@@ -1,5 +1,12 @@
 #@data/values
 ---
-name: greeter-friendly
-greeting: "Hello there"
-replicas: 2
+servers:
+- name: greeting-es
+  greeting: Hola
+  replicas: 3
+- name: greeting-fr
+  greeting: Bonjour
+  replicas: 1
+- name: greeting-en
+  greeting: Hello
+  replicas: 2

@@ -1,0 +1,9 @@
+#@ load("@ytt:library", "library")
+#@ load("@ytt:template", "template")
+#@ load("@ytt:data", "data")
+
+#@ greeter_app = library.get("greeter-app")
+
+#@ for server in data.values.servers:
+--- #@ template.replace(greeter_app.with_data_values(server).eval())
+#@ end
